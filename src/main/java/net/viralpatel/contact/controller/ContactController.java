@@ -1,5 +1,6 @@
 package net.viralpatel.contact.controller;
 
+import java.util.Locale;
 import java.util.Map;
 
 import net.viralpatel.contact.form.Contact;
@@ -7,6 +8,7 @@ import net.viralpatel.contact.service.ContactService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,5 +46,11 @@ public class ContactController {
 		contactService.removeContact(contactId);
 
 		return "redirect:/index1";
+	}
+	
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String user(Locale locale, Model model) {
+	 System.out.println("hi");
+	 return "user";
 	}
 }

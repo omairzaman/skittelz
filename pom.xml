@@ -10,6 +10,7 @@
 	<properties>
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sitemesh.version>3.0-alpha-2</sitemesh.version>
 	</properties>
 	<build>
 		<plugins>
@@ -90,5 +91,10 @@
 			<artifactId>commons-pool</artifactId>
 			<version>1.6</version>
 		</dependency>
+		<dependency>
+ <groupId>org.sitemesh</groupId>
+ <artifactId>sitemesh</artifactId>
+ <version>${sitemesh.version}</version>
+</dependency>
 	</dependencies>
 </project>
