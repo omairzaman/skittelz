@@ -20,6 +20,11 @@ public class ContactController {
 
 	@Autowired
 	private ContactService contactService;
+	
+	@RequestMapping(value="/")
+	 public String index() {
+	  return "index";
+	 }
 
 	@RequestMapping("/index1")
 	public String listContacts(Map<String, Object> map) {
