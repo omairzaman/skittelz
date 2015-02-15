@@ -20,7 +20,7 @@
 		>
 
 	<context:annotation-config />
-	<context:component-scan base-package="net.viralpatel.contact" />
+	<context:component-scan base-package="com.skittelz" />
 	
 	 <mvc:annotation-driven/>
 	 <mvc:resources mapping="/resources/**" location="/resources/" />
@@ -41,7 +41,7 @@
 	</bean>
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		p:location="/WEB-INF/jdbc.properties" />
+		p:location="classpath:jdbc.properties" />
 
 	<bean id="dataSource1"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"

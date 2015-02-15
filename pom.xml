@@ -11,6 +11,11 @@
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sitemesh.version>3.0-alpha-2</sitemesh.version>
+		<dbdeploy.version>3.0M3</dbdeploy.version>
+		<mysql.connector.version>5.1.34</mysql.connector.version>
+		<cglib.version>2.2.2</cglib.version>
+		<dbdeploy.user>root</dbdeploy.user>
+		<dbdeploy.password>root</dbdeploy.password>
 	</properties>
 	<build>
 		<plugins>
@@ -26,6 +31,38 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.dbdeploy</groupId>
+				<artifactId>maven-dbdeploy-plugin</artifactId>
+
+
+				<inherited>false</inherited>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.connector.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>update</goal>
+						</goals>
+						<configuration>
+							<scriptdirectory>config/mysql/changes</scriptdirectory>
+							<driver>com.mysql.jdbc.Driver</driver>
+							<url>jdbc:mysql://localhost:3306/skittelz</url>
+							<userid>${dbdeploy.user}</userid>
+							<password>${dbdeploy.password}</password>
+							<dbms>mysql</dbms>
+							<delimiter>;</delimiter>
+							<delimiterType>row</delimiterType>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -33,6 +70,25 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Dependency for Mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test-mvc</artifactId>
+			<version>1.0.0.M1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -65,6 +121,14 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -85,7 +149,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.34</version>
+			<version>${mysql.connector.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -103,4 +167,11 @@
 			<version>${sitemesh.version}</version>
 		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Portfolio Milestone Repository</name>
+			<url>http://repo.springsource.org/milestone/</url>
+		</repository>
+	</repositories>
 </project>

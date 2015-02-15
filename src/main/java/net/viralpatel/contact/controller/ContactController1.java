@@ -3,10 +3,11 @@ package net.viralpatel.contact.controller;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import net.viralpatel.contact.form.Contact;
 import net.viralpatel.contact.service.ContactService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ContactController {
+public class ContactController1 {
 
-	@Autowired
+
+	@Resource(name="contactService1")
 	private ContactService contactService;
 	
 	@RequestMapping(value="/")
@@ -57,5 +59,5 @@ public class ContactController {
 	public String user(Locale locale, Model model) {
 	 System.out.println("hi");
 	 return "user";
-	}
+	}  
 }

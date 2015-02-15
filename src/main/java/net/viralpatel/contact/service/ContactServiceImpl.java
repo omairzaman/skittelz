@@ -2,17 +2,19 @@ package net.viralpatel.contact.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import javax.annotation.Resource;
 
 import net.viralpatel.contact.dao.ContactDAO;
 import net.viralpatel.contact.form.Contact;
 
-@Service
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service("contactService1")
 public class ContactServiceImpl implements ContactService {
 
-	@Autowired
+
+	@Resource(name="contactDao1")
 	private ContactDAO contactDAO;
 	
 	@Transactional
