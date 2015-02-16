@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ContactController1 {
@@ -23,7 +24,7 @@ public class ContactController1 {
 	@Resource(name="contactService1")
 	private ContactService contactService;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/abc")
 	 public String index() {
 	  return "index";
 	 }
@@ -47,17 +48,20 @@ public class ContactController1 {
 	}
 
 	@RequestMapping("/delete/{contactId}")
-	public String deleteContact(@PathVariable("contactId")
+	public ModelAndView deleteContact(@PathVariable("contactId")
 	Integer contactId) {
 
+		ModelAndView mv = new ModelAndView("/ab");
 		contactService.removeContact(contactId);
 
-		return "redirect:/index1";
+		return mv;
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String user(Locale locale, Model model) {
-	 System.out.println("hi");
-	 return "user";
-	}  
+	 @RequestMapping("/viewall")
+	 public ModelAndView userListHander() {
+
+	        ModelAndView mv = new ModelAndView("/ab");
+	        mv.addObject("contacts", contactService.listContact());
+	        return mv;
+	    } 
 }

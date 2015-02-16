@@ -13,6 +13,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Domain class for the contact information
@@ -43,18 +47,26 @@ public class Contact {
 	@GeneratedValue(generator = "contact_seq_gen", strategy = GenerationType.AUTO)
 	Long contactId;
 
+	@NotEmpty
+    @Size(max = 50)
 	@Column(name = "NAME")
 	String name;
 
+	@NotEmpty
+    @Email
+    @Size(min = 3,max = 100)
 	@Column(name = "EMAIL")
 	String email;
 
+	@NotEmpty
 	@Column(name = "MESSAGE")
 	String message;
 
 	@Column(name = "CREATEDBY")
 	Long createdBy;
 
+	//@DateTimeFormat(pattern="MM/dd/yyyy")
+    //@NotNull @Past   
 	@Column(name = "CREATEDON")
 	@Temporal(TemporalType.TIMESTAMP)
 	Date createdOn;

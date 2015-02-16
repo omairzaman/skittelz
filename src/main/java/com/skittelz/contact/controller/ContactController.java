@@ -1,61 +1,109 @@
 package com.skittelz.contact.controller;
 
-import java.util.Locale;
-import java.util.Map;
-
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
-import net.viralpatel.contact.form.Contact;
-import net.viralpatel.contact.service.ContactService;
-
-import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.skittelz.contact.domain.Contact;
+import com.skittelz.contact.service.ContactService;
+
+@Controller
+@RequestMapping("/contact")
 public class ContactController {
 
 	@Resource(name="contactService")
 	private ContactService contactService;
 	
-	@RequestMapping(value="/")
-	 public String index() {
-	  return "index";
+	@RequestMapping( method = RequestMethod.GET)
+	 public ModelAndView index() {
+		 return new ModelAndView("ab");	  
 	 }
+	
+	@RequestMapping("newcontactform")
+    public ModelAndView showCreateNewUserForm() {
 
-	@RequestMapping("/index1")
-	public String listContacts(Map<String, Object> map) {
+        ModelAndView mv = new ModelAndView("ab");       
+        mv.addObject("contact", new Contact());
 
-		map.put("contact", new Contact());
-		map.put("contactList", contactService.listContact());
-
-		return "contact";
-	}
-
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addContact(@ModelAttribute("contact")
+        return mv;
+    }
+	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public ModelAndView addContact(@Valid @ModelAttribute("contact") 
 	Contact contact, BindingResult result) {
+		
+		 ModelAndView mv = null;
+	        
+	        if( result.hasErrors()){
+	            mv = new ModelAndView("newcontactform");
+	            mv.addObject("contact", contact);
+	        }else{
+	           // mv = new ModelAndView("redirect:default.do");
+	        	mv = new ModelAndView("ab");
+	        	contactService.createContact(contact);
+	        }
+	        
+	        
 
-		contactService.addContact(contact);
-
-		return "redirect:/index1";
+	        return mv;
 	}
 
 	@RequestMapping("/delete/{contactId}")
-	public String deleteContact(@PathVariable("contactId")
-	Integer contactId) {
+	public ModelAndView deleteContact(@PathVariable("contactId")
+	Long contactId) {
 
+		ModelAndView mv = new ModelAndView("ab");
 		contactService.removeContact(contactId);
 
-		return "redirect:/index1";
+		return mv;
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String user(Locale locale, Model model) {
-	 System.out.println("hi");
-	 return "user";
-	}  
+	@RequestMapping("/view/{contactId}")
+	public ModelAndView viewContact(@PathVariable("contactId")
+	Long contactId) {
+
+		ModelAndView mv = new ModelAndView("ab");
+		mv.addObject("contact", contactService.getContactById(contactId));		
+		return mv;
+	}
+	
+	@RequestMapping("/view/name/{name}")
+	public ModelAndView viewContact(@PathVariable("name")
+	String name) {
+
+		ModelAndView mv = new ModelAndView("ab");
+		mv.addObject("contact", contactService.getContactByName(name));		
+		return mv;
+	}
+	
+	 @RequestMapping("/viewall")
+	 public ModelAndView viewAllContacts() {
+
+	        ModelAndView mv = new ModelAndView("ab");
+	        mv.addObject("contacts", contactService.getAllContacts());
+	        return mv;
+	    } 
+	 
+	/* @RequestMapping(value = "/todo/update", method = RequestMethod.POST)
+	    public String update(@Valid @ModelAttribute("todo") TodoDTO dto, BindingResult result, RedirectAttributes attributes) throws TodoNotFoundException {
+	        if (result.hasErrors()) {
+	            return "todo/update";
+	        }
+	 
+	        Todo updated = service.update(dto);
+	 
+	        addFeedbackMessage(attributes, "feedback.message.todo.updated", updated.getTitle());
+	        attributes.addAttribute("id", updated.getId());
+	 
+	        return createRedirectViewPath("/todo/{id}");
+	    } */
+	
 }
 

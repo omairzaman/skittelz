@@ -1,4 +1,4 @@
-package com.skittelz.contact;
+package com.skittelz.contact.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
