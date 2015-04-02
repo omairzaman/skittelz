@@ -37,13 +37,13 @@ public class ContactServiceByMockTest {
 	@Test
 	public void testContactServiceByMock(){
 	 
-		List<Contact> contacts=contactDao.getAllContacts();
+		List<Contact> contacts=contactService.getAllContacts();
 		assertEquals("List size should be 2",2,contacts.size());
 		
 		Contact contact=contacts.get(0);
 		assertEquals("Contact Id should be 1",Long.valueOf(1),contact.getContactId());
 		
-		Contact contactByName= contactDao.getContactByName("arslan");
+		Contact contactByName= contactService.getContactByName("arslan");
 		assertEquals("User name should be equal","arslan",contactByName.getName());
 		
 	}

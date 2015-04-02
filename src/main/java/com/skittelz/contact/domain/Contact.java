@@ -1,8 +1,10 @@
 package com.skittelz.contact.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.skittelz.util.Audit;
+
 /**
  * Domain class for the contact information
  */
@@ -25,10 +29,15 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "CONTACTS")
 @SequenceGenerator(sequenceName = "contact_id_seq", name = "contact_seq_gen")
 @NamedQueries({
-		@NamedQuery(name = "CONTACTS.findAll", query = "SELECT c FROM Contact c order by c.createdOn DESC"),
+		@NamedQuery(name = "CONTACTS.findAll", query = "SELECT c FROM Contact c order by c.audit.createdOn DESC"),
 		@NamedQuery(name = "CONTACTS.findById", query = "SELECT c FROM Contact c WHERE c.contactId = :id"),
 		@NamedQuery(name = "CONTACTS.findByName", query = "SELECT c FROM Contact c WHERE c.name = :name") })
-public class Contact {
+public class Contact implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Contact() {
 
@@ -61,23 +70,10 @@ public class Contact {
 	@NotEmpty
 	@Column(name = "MESSAGE")
 	String message;
+	
+	@Embedded private Audit audit; 
 
-	@Column(name = "CREATEDBY")
-	Long createdBy;
-
-	//@DateTimeFormat(pattern="MM/dd/yyyy")
-    //@NotNull @Past   
-	@Column(name = "CREATEDON")
-	@Temporal(TemporalType.TIMESTAMP)
-	Date createdOn;
-
-	@Column(name = "LASTUPDATEDBY")
-	Long lastUpdatedBy;
-
-	@Column(name = "LASTUPDATEDON")
-	@Temporal(TemporalType.TIMESTAMP)
-	Date lastUpdatedOn;
-
+	
 	/**
 	 * @return the contact Id
 	 */
@@ -138,37 +134,14 @@ public class Contact {
 		this.message = message;
 	}
 
-	public Long getCreatedBy() {
-		return createdBy;
-	}
+	 public Audit getAudit() {
+	        return audit;
+	    }
 
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
-	}
+	    public void setAudit(Audit audit) {
+	        this.audit = audit;
+	    }
 
-	public Date getCreatedOn() {
-		return createdOn;
-	}
-
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
-	}
-
-	public Long getLastUpdatedBy() {
-		return lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(Long lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
-
-	public Date getLastUpdatedOn() {
-		return lastUpdatedOn;
-	}
-
-	public void setLastUpdatedOn(Date lastUpdatedOn) {
-		this.lastUpdatedOn = lastUpdatedOn;
-	}
 
 	@Override
 	public int hashCode() {

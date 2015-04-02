@@ -44,95 +44,33 @@ public class ContactControllerTest {
  
     @Before
     public void setUp() {
-        //We have to reset our mock between tests because the mock objects
-        //are managed by the Spring container. If we would not reset them,
-        //stubbing and verified behavior would "leak" from one test to another.
-    //    Mockito.reset(todoServiceMock);
- 
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
     
     @Test
     public void testWiring(){
     	assertNotNull("mock mvc not working", mockMvc);
-    	assertNotNull("contact service not working", contactService);
-    	   	
+    	assertNotNull("contact service not working", contactService);    	   	
     }
     
     @Test
-	public void testContactMainPage() throws Exception {
-		mockMvc.perform(get("/contact"))
-			.andExpect(status().isOk())
-			.andExpect(view().name("ab"))
-			.andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"));
+	public void testContactMainPage() throws Exception {		
+		 mockMvc.perform(get("/contact"))
+         .andExpect(status().isOk())
+         .andExpect(view().name("contact"))
+         .andExpect(forwardedUrl("/WEB-INF/jsp/contact.jsp"))
+         .andExpect(model().attribute("contact", hasProperty("contactId", nullValue())))
+         .andExpect(model().attribute("contact", hasProperty("name", nullValue())))
+         .andExpect(model().attribute("contact", hasProperty("email", nullValue())))
+		 .andExpect(model().attribute("contact", hasProperty("message", nullValue()))); 
 	}
     
-    @Test   
-    public void findAllContacts() throws Exception {
-        mockMvc.perform(get("/contact/viewall"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"))
-             //   .andExpect(model().attribute("contacts", hasSize(1)))
-//                .andExpect(model().attribute("todos", hasItem(
-//                        allOf(
-//                                hasProperty("id", is(1L)),
-//                                hasProperty("description", is("Lorem ipsum")),
-//                                hasProperty("title", is("Foo"))
-//                        )
-//                )))
-                .andExpect(model().attribute("contacts", hasItem(                       
-                        allOf(
-                                hasProperty("email", is("omair@gmail.com")),
-                                hasProperty("name", is("omair"))                               
-                        )
-                )));
-    }
+    
+    
+   
     
     @Test    
-    public void findContactByName() throws Exception {
-        mockMvc.perform(get("/contact/view/name/{name}", "omair"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"))
-                .andExpect(model().attribute("contact", hasProperty("email", is("omair@gmail.com"))))
-                .andExpect(model().attribute("contact", hasProperty("name", is("omair"))));               
-    }
-    
-    @Ignore
-    @Test    
-    public void findContactById() throws Exception {
-        mockMvc.perform(get("/contact/view/{id}", 1L))
-                .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"))
-                .andExpect(model().attribute("contact", hasProperty("email", is("omair@gmail.com"))))
-                .andExpect(model().attribute("contact", hasProperty("name", is("omair"))));               
-    }
-    
-    @Ignore
-    @Test   
-    public void deleteContactById() throws Exception {
-        mockMvc.perform(get("/contact/delete/{id}", 1L))
-                .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
-              //  .andExpect(flash().attribute("feedbackMessage", is("Todo entry: Foo was deleted.")))
-                ;
-    }
-    
-    @Test   
-    public void showAddTodoForm() throws Exception {
-        mockMvc.perform(get("/contact/newcontactform"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"))
-                .andExpect(model().attribute("contact", hasProperty("contactId", nullValue())))
-                .andExpect(model().attribute("contact", hasProperty("name", nullValue())))
-                .andExpect(model().attribute("contact", hasProperty("email", nullValue())));       
-    }
-    
-    @Test    
-    public void addTodoWhenTitleAndDescriptionAreTooLong() throws Exception {
+    public void addContactWithErrors() throws Exception {
         String name = "yasir";
         String email = "yasir@gamil.com";
  
@@ -143,7 +81,7 @@ public class ContactControllerTest {
                 .requestAttr("contact", new Contact())
         )
                 .andExpect(status().isOk())
-                .andExpect(view().name("newcontactform"))
+                .andExpect(view().name("contact"))
               //  .andExpect(forwardedUrl("/WEB-INF/jsp/ab.jsp"))                
                 .andExpect(model().attributeHasFieldErrors("contact", "message"))
                 .andExpect(model().attribute("contact", hasProperty("contactId", nullValue())))
@@ -163,29 +101,12 @@ public class ContactControllerTest {
                 .requestAttr("contact", new Contact())
         )
                 .andExpect(status().isOk())
-                .andExpect(view().name("ab"))
+                .andExpect(view().name("contact"))
                // .andExpect(model().attribute("id", is("3")))
                 ;
     }
     
-    /*  
-      @Test
-    @ExpectedDatabase(value="toDoData-update-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
-    public void updateTodo() throws Exception {
-        mockMvc.perform(post("/todo/update")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("description", "description")
-                .param("id", "1")
-                .param("title", "title")
-                .sessionAttr("todo", new TodoDTO())
-        )
-                .andExpect(status().isOk())
-                .andExpect(view().name("redirect:/todo/view/{id}"))
-                .andExpect(model().attribute("id", is("1")))
-                .andExpect(flash().attribute("feedbackMessage", is("Todo entry: title was updated.")));
-    }
-     
-     */
+    
      
 
 }
