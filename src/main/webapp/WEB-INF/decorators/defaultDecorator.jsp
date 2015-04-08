@@ -68,11 +68,11 @@
             <nav class="nav">
                 <a href="artist.html" class="nav__item">Artist</a>
                 <a href="audio.html" class="nav__item">Audio</a>
-                <a href="blog.html" class="nav__item">Blog</a>
-                <a href="tour.html" class="nav__item">Tour</a>
-                <a href="events.html" class="nav__item">Events</a>
-                <a href="contact.html" class="nav__item">Contact</a>
+                <a href="video.html" class="nav__item">Video</a>
                 <a href="gallery.html" class="nav__item">Gallery</a>
+                <a href="blog.html" class="nav__item">Blog</a>
+                <a href="shop.html" class="nav__item">Shop</a>
+                <a href="contact.html" class="nav__item">Contact</a>
             </nav>  
             <!-- End nav -->
         </div>
@@ -80,6 +80,9 @@
     </header>
     <!-- End header -->
     <sitemesh:write property='body'/>
+
+
+      <!-- Begin footer -->
       <footer class="footer">
         <div class="top-section">
             <div class="container cf">
@@ -186,10 +189,10 @@
                     <a href="artist.html" class="second-nav__item">Artist</a>
                     <a href="audio.html" class="second-nav__item">Audio</a>
                     <a href="blog.html" class="second-nav__item">Blog</a>
-                    <a href="tour.html" class="second-nav__item">Tour</a>
                     <a href="events.html" class="second-nav__item">Events</a>
                     <a href="contacts.html" class="second-nav__item">Contacts</a>
                     <a href="gallery.html" class="second-nav__item">Gallery</a>
+                    <a href="shop.html" class="second-nav__item">Shop</a>
                 </nav>
                 <!-- End second nav -->
 
@@ -202,79 +205,7 @@
     </footer>
     <!-- End footer -->
 
-    <script>
-        $(document).ready(function(){
-            $("#jquery_jplayer_14").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                swfPath: "<c:url value="/resources/js" />",
-                supplied: "m4a, oga",
-                cssSelectorAncestor: '#jp_container_14'
-            });
-            /* End player 14 */
 
-            $("#jquery_jplayer_15").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                swfPath: "<c:url value="/resources/js" />",
-                supplied: "m4a, oga",
-                cssSelectorAncestor: '#jp_container_15'
-            });
-            /* End player 15 */
-
-            $("#jquery_jplayer_16").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                swfPath: "<c:url value="/resources/js" />",
-                supplied: "m4a, oga",
-                cssSelectorAncestor: '#jp_container_16'
-            });
-            /* End player 16 */
-
-            $("#jquery_jplayer_17").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                swfPath: "<c:url value="/resources/js" />",
-                supplied: "m4a, oga",
-                cssSelectorAncestor: '#jp_container_17'
-            });
-            /* End player 17 */
-
-            $("#jquery_jplayer_18").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                swfPath: "<c:url value="/resources/js" />",
-                supplied: "m4a, oga",
-                cssSelectorAncestor: '#jp_container_18'
-            });
-            /* End player 18 */
-        });
-    </script>
 
     <script src="<c:url value="/resources/js/libs/jquery.bxslider.min.js" />"></script>
     <script src="<c:url value="/resources/js/libs/jquery.magnific-popup.min.js" />"></script>
