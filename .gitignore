@@ -2,7 +2,9 @@
 /build/
 /bin/
 target/
- 
+.idea/
+
+skittelz.iml
 # OS Files #
 .DS_Store
  

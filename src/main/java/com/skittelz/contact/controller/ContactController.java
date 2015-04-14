@@ -15,7 +15,7 @@ import com.skittelz.contact.domain.Contact;
 import com.skittelz.contact.service.ContactService;
 
 @Controller
-@RequestMapping("/contact")
+@RequestMapping("/contact.html")
 public class ContactController {
 
 	@Resource(name="contactService")

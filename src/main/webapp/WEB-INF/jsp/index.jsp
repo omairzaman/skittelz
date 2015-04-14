@@ -1,12 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head><title>Skittlez</title></head>
+
+
 <body>
     <div class="wrap-slider cf">
         <ul class="slider home-slider cf">
             <li class="home-slider__item home-slider__item_first">
                 <div class="container">
                     <div class="content-slide">
-                        <h1 class="content-slide__title">Calendo net label</h1>
+                        <h1 class="content-slide__title">Skittelz</h1>
 
                         <a href="#" class="content-slide__only">Hard<strong>rock music</strong></a>
 
@@ -29,7 +31,7 @@
             <li class="home-slider__item home-slider__item_second">
                 <div class="container">
                     <div class="content-slide">
-                        <h1 class="content-slide__title">Calendo net label</h1>
+                        <h1 class="content-slide__title">Skittelz</h1>
 
                         <a href="#" class="content-slide__only">Hard<strong>rock music</strong></a>
 
@@ -52,7 +54,7 @@
             <li class="home-slider__item home-slider__item_third">
                 <div class="container">
                     <div class="content-slide">
-                        <h1 class="content-slide__title">Calendo net label</h1>
+                        <h1 class="content-slide__title">Skittelz</h1>
 
                         <a href="#" class="content-slide__only">Hard<strong>rock music</strong></a>
 
@@ -76,50 +78,15 @@
     </div>
     <!-- End wrap slider -->
 
+
+
     <div class="wrap-player">
-        <div class="container cf">
-            <i class="audio-disk"></i>
-        
-                <div class="detailed-plr detailed-plr_second-type">
-                    <div id="jquery_jplayer_14" class="jp-jplayer"></div>
-                    <div id="jp_container_14" class="jp-audio">
-                        <div class="jp-type-single">
-                            <div class="jp-gui jp-interface">
-                                <ul class="jp-controls">
-                                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-                                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-                                </ul>
-                                <div class="jp-progress">
-                                    <div class="jp-seek-bar">
-                                        <div class="jp-play-bar"></div>
-                                    </div>
-                                </div>
-                                <div class="jp-volume-bar">
-                                    <div class="jp-volume-bar-value"></div>
-                                </div>
-                                <div class="jp-time-holder">
-                                    <div class="jp-current-time"></div>
-                                </div>
-                            </div>
-                            <div class="jp-details">
-                                <ul>
-                                    <li><span class="jp-title"></span></li>
-                                </ul>
-                            </div>
-                            <div class="jp-no-solution">
-                                <span>Update Required</span>
-                                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End detailed player -->
-        </div>
+        <div class="widget_iframe_main" style="display:inline-block;width:70%;height:70px;margin:100;padding:0;border:0;"><iframe  class="widget_iframe_main"  src="http://www.reverbnation.com/widget_code/html_widget/artist_883416?widget_id=50&amp;posted_by=fan_4321008&pwc[design]=customized&pwc[background_color]=black&pwc[included_songs]=0&pwc[song_ids]=20432643&pwc[photo]=0&pwc[size]=custom" width="80%" height="100%" frameborder="0" scrolling="no"></iframe></div>
         <!-- End Container -->
     </div>
     <!-- End Wrap player -->
+
+
 
     <div class="wrap-album-slider">
         <ul class="album-slider">
@@ -789,172 +756,7 @@
     </section>
     <!-- End latest -->
 
-    <section class="popular">
-        <div class="container cf">
-            <section class="left-col">
-                <h1 class="title">Popular audio</h1>
 
-                <div class="popular-audio">
-
-                    <div class="short-player cf">
-                        <div id="jquery_jplayer_15" class="jp-jplayer"></div>
-                        <div id="jp_container_15" class="jp-audio">
-                            <div class="jp-type-single cf">
-                                <div class="jp-gui jp-interface">
-                                    <ul class="jp-controls">
-                                        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-details">
-                                    <ul>
-                                        <li><span class="jp-title"></span></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-no-solution">
-                                    <span>Update Required</span>
-                                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End short player 15 -->
-
-                    <div class="short-player cf">
-                        <div id="jquery_jplayer_16" class="jp-jplayer"></div>
-                        <div id="jp_container_16" class="jp-audio">
-                            <div class="jp-type-single cf">
-                                <div class="jp-gui jp-interface">
-                                    <ul class="jp-controls">
-                                        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-details">
-                                    <ul>
-                                        <li><span class="jp-title"></span></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-no-solution">
-                                    <span>Update Required</span>
-                                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End short player 16 -->
-
-                    <div class="short-player cf">
-                        <div id="jquery_jplayer_17" class="jp-jplayer"></div>
-                        <div id="jp_container_17" class="jp-audio">
-                            <div class="jp-type-single cf">
-                                <div class="jp-gui jp-interface">
-                                    <ul class="jp-controls">
-                                        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-details">
-                                    <ul>
-                                        <li><span class="jp-title"></span></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-no-solution">
-                                    <span>Update Required</span>
-                                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End short player 17 -->
-
-                    <div class="short-player cf">
-                        <div id="jquery_jplayer_18" class="jp-jplayer"></div>
-                        <div id="jp_container_18" class="jp-audio">
-                            <div class="jp-type-single cf">
-                                <div class="jp-gui jp-interface">
-                                    <ul class="jp-controls">
-                                        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-details">
-                                    <ul>
-                                        <li><span class="jp-title"></span></li>
-                                    </ul>
-                                </div>
-                                <div class="jp-no-solution">
-                                    <span>Update Required</span>
-                                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End short player 18 -->
-                    
-                    <div class="popular-audio__text">
-                        <p>In elementum pellentesque dolor ac gravida. Pellentesque elit leo, accumsan sed consectetur a, semper ac sem. Morbi sodales bibendum risus nec laoreet. Mauris est nisi, consequat vitae porta et, hendrerit sed metus.</p>
-
-                        <p>Aliquam eu magna vel metus ultrices ornare in et nisi. Quisque porta sodales orci, eu auctor leo tincidunt nec. Suspendisse posuere blandit tortor sit amet varius. Integer condimentum rutrum mi quis lobortis. Etiam consectetur posuere pretium.</p>
-                    </div>
-                </div>
-            </section>
-            <!--End left col -->
-
-            <section class="right-col">
-                <h1 class="title">Popular video</h1>
-
-                <div class="popular-video">
-                    <div class="popular-video__thumb">
-                        <div class="video-nav">
-                            <a href="#" class="video-nav__icon video-nav__icon_link">Link video</a>
-                            <a href="https://www.youtube.com/watch?v=2fngvQS_PmQ" class="video-nav__icon video-nav__icon_popup">Play video</a>
-                        </div>
-                    </div>
-                    <!-- End popular video thumb -->
-
-                   <div class="video-details">
-                        <h1 class="video-details__performer">Davide Squillace Party</h1>
-                        <div class="video-details__song-name">Zomer Park</div>
-                   </div>
-                   <!-- End video details -->
-
-                   <div class="wrap-popular-albums">
-                        <ul class="popular-albums">
-                            <li class="popular-albums__item">
-                                <a href="artist.html" class="popular-albums__link">
-                                    <img src="<c:url value="/resources/css/images/popular-albums/image.jpg" />" alt="">
-                                </a>
-                            </li>
-
-                            <li class="popular-albums__item">
-                                <a href="artist.html" class="popular-albums__link">
-                                    <img src="<c:url value="/resources/css/images/popular-albums/image2.jpg" />" alt="">
-                                </a>
-                            </li>
-
-                            <li class="popular-albums__item">
-                                <a href="artist.html" class="popular-albums__link">
-                                    <img src="<c:url value="/resources/css/images/popular-albums/image3.jpg" />" alt="">
-                                </a>
-                            </li>
-
-                            <li class="popular-albums__item">
-                                <a href="artist.html" class="popular-albums__link">
-                                    <img src="<c:url value="/resources/css/images/popular-albums/image4.jpg" />" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                   </div>
-                   <!-- End wrap popular albums -->
-                </div>
-                <!-- End popular video -->
-            </section>
-            <!--End right col -->
-        </div>
-        <!-- End container -->
-    </section>
-    <!-- End popular -->
 
     <section class="latest latest_photo">
         <div class="container cf">

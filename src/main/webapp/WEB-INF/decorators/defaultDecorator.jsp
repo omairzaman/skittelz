@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/magnific-popup.css" />">
     <!-- End styles -->
     
-    <script type='text/javascript' src="<c:url value="/resources/js/libs/modernizr-2.5.3.min.js" />">  </script>
-     <!-- End modernizr -->
+    <script type='text/javascript' src="<c:url value="/resources/js/libs/modernizr-2.5.3.min.js" />">  </script>    <!-- End modernizr -->
+
 
     <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,7 +66,7 @@
             <!-- End logo -->
 
             <nav class="nav">
-                <a href="artist.html" class="nav__item">Artist</a>
+                <a href="artist.html" class="nav__item">Artists</a>
                 <a href="audio.html" class="nav__item">Audio</a>
                 <a href="video.html" class="nav__item">Video</a>
                 <a href="gallery.html" class="nav__item">Gallery</a>
